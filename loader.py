@@ -80,3 +80,17 @@ class CSDNDBViewer:
             print(f"👍 赞: {row['likes']} | 💬 评论: {row['comments']} | ⭐ 收藏: {row['favorites']} | 👁️ 浏览: {row['views']}")
             print(f"📝 摘要: {content_snippet}...")
             print("-" * 80)
+  """ quick start"""
+from loader import CSDNDBViewer
+
+viewer = CSDNDBViewer("csdn_2021_ultra_200.db")
+
+# 查看表结构
+print(viewer.show_schema())
+
+# 快速预览
+viewer.pretty_print(5)
+
+# 读取全部数据
+data = viewer.load_all()
+print(len(data))
